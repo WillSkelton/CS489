@@ -1,0 +1,6 @@
+.side-menu {
+	/* Menu stays in place regardless of other content */
+	position: fixed;
+	/* Give menu a high z value to force it to be on top */
+	z-index: 150;
+}
