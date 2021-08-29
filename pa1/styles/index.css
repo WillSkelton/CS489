@@ -1,6 +1,15 @@
-.side-menu {
+#sideMenu {
 	/* Menu stays in place regardless of other content */
 	position: fixed;
 	/* Give menu a high z value to force it to be on top */
 	z-index: 150;
+	background-color: darkblue;
+	height: 100%;
+	width: 30%;
+}
+
+.menu-item {
+	display: block;
+	color: white;
+	margin: 1em;
 }
