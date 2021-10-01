@@ -1,0 +1,63 @@
+{
+	"env": {
+		"browser": true,
+		"es2021": true
+	},
+	"extends": [
+		"plugin:react/recommended",
+		"airbnb",
+		"plugin:testcafe/recommended",
+		"plugin:react/recommended"
+	],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		},
+		"ecmaVersion": 12,
+		"sourceType": "module"
+	},
+	"plugins": [
+		"react"
+	],
+	"rules": {
+		"react/jsx-fragments": [
+			"error",
+			"element"
+		],
+		"react/jsx-indent": [
+			"error",
+			"tab"
+		],
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1
+			}
+		],
+		"no-tabs": [
+			"error",
+			{
+				"allowIndentationTabs": true
+			}
+		],
+		"no-restricted-syntax": [
+			"error",
+			"ForIn"
+		],
+		"linebreak-style": [
+			"error",
+			"windows"
+		],
+		"arrow-parens": [
+			"error",
+			"as-needed"
+		],
+		"max-len": [
+			"error",
+			{
+				"code": 150
+			}
+		]
+	}
+}

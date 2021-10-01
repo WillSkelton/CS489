@@ -1,0 +1,29 @@
+{
+	"name": "ia3",
+	"version": "1.0.0",
+	"description": "ia3",
+	"main": "index.js",
+	"dependencies": {
+		"react": "^17.0.2"
+	},
+	"devDependencies": {
+		"axe-core": "^4.3.2",
+		"axe-testcafe": "^3.0.0",
+		"eslint": "^7.32.0",
+		"eslint-config-airbnb": "^18.2.1",
+		"eslint-plugin-import": "^2.24.2",
+		"eslint-plugin-jsx-a11y": "^6.4.1",
+		"eslint-plugin-react": "^7.26.1",
+		"eslint-plugin-react-hooks": "^4.2.0",
+		"eslint-plugin-testcafe": "^0.2.1",
+		"testcafe": "^1.15.3"
+	},
+	"scripts": {
+		"test": "testcafe chrome .\\tests\\*",
+		"test-menu": "testcafe chrome .\\tests\\menuTest.js"
+	},
+	"repository": {},
+	"keywords": [],
+	"author": "Will Skelton",
+	"license": "ISC"
+}
