@@ -58,6 +58,16 @@
 			{
 				"code": 150
 			}
+		],
+		"operator-linebreak": [
+			"error",
+			"after",
+			{
+				"overrides": {
+					"?": "after",
+					":": "after"
+				}
+			}
 		]
 	}
 }
