@@ -33,26 +33,32 @@ class WeatherStation extends React.Component {
 	}
 
 	getCurrentObservations = async () => {
-		const response = await fetch(
-			`http://api.openweathermap.org/data/2.5/weather?lat=${this.state.latitude}&lon=${this.state.longitude}&appid=98cb8d2538da248784d8e1c1f9332ea9`
+		const dataResponse = await fetch(
+			`https://api.weather.gov/points/${this.state.latitude},${this.state.longitude}/`
+		)
+		const data = await dataResponse.json()
+		const { gridX, gridY, cwa } = data.properties
+		const city = data.properties.relativeLocation.properties.city
+		const weatherResponse = await fetch(
+			`https://api.weather.gov/gridpoints/${cwa}/${gridX},${gridY}/forecast`
 		);
-		const currWeather = await response.json();
+		const currWeather = await weatherResponse.json();
+		const now = currWeather.properties.periods[0]
 		this.setState(
 			{
-				place: currWeather.name,
+				place: city,
 				retrieved: (new Date()).toLocaleDateString() + " at " +
 					(new Date()).toLocaleTimeString(),
-				conditions: currWeather.weather[0].main,
-				visibility: currWeather.weather.visibility,
+				conditions: now.detailedForecast,
+				visibility: now.shortForecast,
 				visibilityUnit: "Meters",
-				temp: Math.round(currWeather.main.temp - 273.15),
-				tempUnit: "C",
-				humidity: currWeather.main.humidity,
-				visibility: currWeather.visibility,
-				wind: currWeather.wind.speed,
-				windUnit: "Meters/sec",
-				windDirection: currWeather.wind.deg,
-				windDirectionUnit: "Degrees"
+				temp: now.temperature,
+				tempUnit: now.temperatureUnit,
+				humidity: "{currWeather.main.humidity}",
+				wind: now.windspeed,
+				windUnit: "Mph",
+				windDirection: now.windDirection,
+				windDirectionUnit: "of North"
 			});
 	}
 
